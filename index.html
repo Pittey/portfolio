@@ -3,241 +3,154 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Aphiwe Khayelihle Ngubeni | Software Tester & Developer</title>
-
-  <meta name="description" content="Aphiwe Khayelihle Ngubeni — Junior Software Tester and Software Developer. Manual testing, compliance-focused validation, UI testing, and C#/.NET enterprise application support." />
-  <meta name="robots" content="index,follow" />
-
-  <!-- Social preview -->
-  <meta property="og:title" content="Aphiwe Khayelihle Ngubeni | Portfolio" />
-  <meta property="og:description" content="Junior Software Tester and Software Developer — manual testing, compliance-focused validation, UI testing, and C#/.NET support." />
+  <title>Aphiwe Khayelihle Ngubeni</title>
+  <meta name="description" content="Junior Software Tester and Software Developer — manual testing, compliance-focused validation, UI testing, and C#/.NET support." />
+  <meta property="og:title" content="Aphiwe Khayelihle Ngubeni" />
+  <meta property="og:description" content="Junior Software Tester and Software Developer — compliance-focused validation, UI testing, and C#/.NET support." />
   <meta property="og:type" content="website" />
-
   <style>
     :root{
-      --bg:#070a12;
-      --panel: rgba(255,255,255,.06);
-      --panel2: rgba(255,255,255,.04);
-      --text:#eaf0ff;
-      --muted:#b7c2e1;
-      --border: rgba(255,255,255,.12);
-      --shadow: 0 18px 40px rgba(0,0,0,.45);
-      --radius: 18px;
+      --bg:#060812;
+      --fg:#eaf0ff;
+      --muted:#b6c2e1;
+      --line:rgba(255,255,255,.12);
+      --glass:rgba(255,255,255,.06);
+      --glass2:rgba(255,255,255,.04);
+      --shadow: 0 18px 48px rgba(0,0,0,.55);
+      --r:18px;
 
-      /* Rick & Morty-inspired (original) palette */
-      --portal1:#7CFF6B;
-      --portal2:#4DFFB5;
-      --portal3:#6EA8FF;
+      --p1:#7CFF6B;
+      --p2:#4DFFB5;
+      --p3:#6EA8FF;
       --acid:#B6FF4C;
 
-      --max: 1100px;
+      --max: 1120px;
     }
 
     *{ box-sizing:border-box; }
-    html, body{ height:100%; }
+    html,body{ height:100%; }
     body{
       margin:0;
-      color:var(--text);
       background: var(--bg);
+      color: var(--fg);
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
       line-height:1.55;
       overflow-x:hidden;
     }
-    a{ color:inherit; }
+    a{ color:inherit; text-decoration:none; }
+    a:hover{ text-decoration:underline; text-underline-offset: 4px; }
 
-    /* ===== Animated Sci-Fi Background (original, inspired) ===== */
-    .bg{
+    canvas#fx{
+      position:fixed;
+      inset:0;
+      z-index:-3;
+      width:100%;
+      height:100%;
+    }
+
+    .wash{
       position:fixed;
       inset:0;
       z-index:-2;
+      background:
+        radial-gradient(1200px 720px at 18% 12%, rgba(110,168,255,.16), transparent 60%),
+        radial-gradient(900px 650px at 82% 28%, rgba(124,255,107,.14), transparent 60%),
+        radial-gradient(820px 560px at 55% 88%, rgba(77,255,181,.10), transparent 65%),
+        linear-gradient(180deg, #04050f 0%, #060812 100%);
       pointer-events:none;
-      background:
-        radial-gradient(1200px 700px at 15% 10%, rgba(110,168,255,.16), transparent 60%),
-        radial-gradient(900px 650px at 85% 30%, rgba(124,255,107,.12), transparent 60%),
-        radial-gradient(700px 450px at 50% 85%, rgba(77,255,181,.08), transparent 60%),
-        linear-gradient(180deg, #050612 0%, #070a12 100%);
     }
 
-    /* Starfield dots (animated drift) */
-    .stars, .stars2{
-      position:absolute;
-      inset:-30%;
-      background-image:
-        radial-gradient(2px 2px at 20px 30px, rgba(255,255,255,.55), transparent 40%),
-        radial-gradient(1px 1px at 80px 120px, rgba(255,255,255,.35), transparent 40%),
-        radial-gradient(1px 1px at 140px 60px, rgba(255,255,255,.35), transparent 40%),
-        radial-gradient(2px 2px at 200px 160px, rgba(255,255,255,.45), transparent 40%),
-        radial-gradient(1px 1px at 260px 40px, rgba(255,255,255,.30), transparent 40%),
-        radial-gradient(2px 2px at 320px 140px, rgba(255,255,255,.45), transparent 40%);
-      background-size: 360px 200px;
-      opacity:.55;
-      filter: blur(.1px);
-      animation: drift 40s linear infinite;
-      transform: translate3d(0,0,0);
-    }
-    .stars2{
-      opacity:.30;
-      filter: blur(.25px);
-      animation-duration: 65s;
-      mix-blend-mode: screen;
-    }
-    @keyframes drift{
-      from { transform: translate3d(0,0,0) scale(1); }
-      to   { transform: translate3d(-120px, 90px, 0) scale(1.02); }
-    }
-
-    /* Portal swirl (animated conic + blur layers) */
-    .portal{
-      position:absolute;
-      width: 980px;
-      height: 980px;
-      left: -260px;
-      top: -260px;
-      border-radius: 50%;
-      background:
-        conic-gradient(from 0deg,
-          rgba(124,255,107,.0),
-          rgba(124,255,107,.30),
-          rgba(77,255,181,.22),
-          rgba(182,255,76,.18),
-          rgba(110,168,255,.18),
-          rgba(124,255,107,.28),
-          rgba(124,255,107,.0)
-        );
-      filter: blur(20px) saturate(1.2);
-      opacity:.70;
-      animation: spin 18s linear infinite;
-    }
-    .portal::after{
-      content:"";
-      position:absolute;
-      inset: 120px;
-      border-radius: 50%;
-      background:
-        radial-gradient(circle at 40% 35%, rgba(182,255,76,.45), transparent 55%),
-        radial-gradient(circle at 65% 60%, rgba(110,168,255,.30), transparent 58%),
-        radial-gradient(circle at 50% 50%, rgba(0,0,0,.65), rgba(0,0,0,.0) 60%);
-      filter: blur(14px);
-      opacity:.85;
-    }
-    @keyframes spin{
-      from { transform: rotate(0deg); }
-      to   { transform: rotate(360deg); }
-    }
-
-    /* Floating “space goo” blobs (subtle) */
-    .blob{
-      position:absolute;
-      width: 240px;
-      height: 240px;
-      border-radius: 40% 60% 55% 45% / 45% 45% 55% 55%;
-      background: radial-gradient(circle at 30% 30%, rgba(124,255,107,.35), transparent 55%),
-                  radial-gradient(circle at 70% 70%, rgba(77,255,181,.22), transparent 58%),
-                  rgba(255,255,255,.03);
-      filter: blur(1px);
-      opacity:.55;
-      animation: floaty 10s ease-in-out infinite;
-      mix-blend-mode: screen;
-    }
-    .blob.b1{ right: -70px; top: 120px; animation-duration: 12s; }
-    .blob.b2{ right: 160px; bottom: -90px; width: 320px; height: 320px; animation-duration: 15s; opacity:.42;}
-    @keyframes floaty{
-      0%,100%{ transform: translateY(0) translateX(0) rotate(0deg); }
-      50%{ transform: translateY(-18px) translateX(10px) rotate(6deg); }
-    }
-
-    /* ===== Layout ===== */
     header{
       position:sticky;
       top:0;
-      z-index: 10;
+      z-index:10;
       backdrop-filter: blur(10px);
-      background: linear-gradient(to bottom, rgba(7,10,18,.86), rgba(7,10,18,.55));
-      border-bottom: 1px solid var(--border);
+      background: linear-gradient(to bottom, rgba(6,8,18,.86), rgba(6,8,18,.56));
+      border-bottom:1px solid var(--line);
     }
     .nav{
       max-width: var(--max);
       margin: 0 auto;
       padding: 14px 18px;
       display:flex;
-      gap:16px;
       align-items:center;
       justify-content: space-between;
+      gap:14px;
     }
     .brand{
       display:flex;
       align-items:center;
       gap:10px;
-      text-decoration:none;
+      font-weight: 750;
       letter-spacing:.2px;
     }
-    .brandDot{
+    .sig{
       width:12px; height:12px; border-radius:999px;
-      background: linear-gradient(135deg, var(--portal3), var(--portal1));
+      background: linear-gradient(135deg, var(--p3), var(--p1));
       box-shadow: 0 0 0 4px rgba(110,168,255,.14);
     }
     nav ul{
+      margin:0; padding:0;
       list-style:none;
-      margin:0;
-      padding:0;
       display:flex;
       gap:12px;
       flex-wrap:wrap;
     }
     nav a{
-      text-decoration:none;
       color: var(--muted);
       padding: 8px 10px;
       border-radius: 10px;
-      border: 1px solid transparent;
-      background: transparent;
+      border:1px solid transparent;
     }
     nav a:hover{
-      color: var(--text);
-      border-color: var(--border);
+      color: var(--fg);
+      border-color: var(--line);
       background: rgba(255,255,255,.04);
+      text-decoration:none;
     }
 
     main{
       max-width: var(--max);
-      margin:0 auto;
-      padding: 28px 18px 34px;
+      margin: 0 auto;
+      padding: 26px 18px 38px;
     }
 
     .hero{
       display:grid;
-      grid-template-columns: 1.15fr .85fr;
-      gap: 18px;
-      align-items: start;
-      padding: 18px 0 8px;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 16px;
+      padding: 14px 0 6px;
+      align-items:start;
     }
-    @media (max-width: 920px){
+    @media (max-width: 940px){
       .hero{ grid-template-columns: 1fr; }
     }
 
     .card{
-      background: linear-gradient(180deg, var(--panel), var(--panel2));
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
+      border:1px solid var(--line);
+      background: linear-gradient(180deg, var(--glass), var(--glass2));
+      border-radius: var(--r);
       box-shadow: var(--shadow);
     }
-    .heroMain{ padding: 24px; }
+
+    .heroMain{ padding: 24px; position:relative; overflow:hidden; }
     .heroSide{ padding: 18px; }
 
-    .badge{
+    .kicker{
       display:inline-flex;
-      gap:10px;
       align-items:center;
+      gap:10px;
       padding: 8px 12px;
       border-radius: 999px;
-      border: 1px solid var(--border);
+      border:1px solid var(--line);
       background: rgba(255,255,255,.03);
       color: var(--muted);
       font-size: 13px;
+      letter-spacing:.25px;
     }
     .pulse{
       width:8px; height:8px; border-radius:999px;
-      background: var(--portal1);
+      background: var(--p1);
       box-shadow: 0 0 0 0 rgba(124,255,107,.35);
       animation: ping 1.8s ease-out infinite;
     }
@@ -248,94 +161,162 @@
     }
 
     h1{
-      margin: 14px 0 8px;
-      font-size: 40px;
-      line-height: 1.08;
-      letter-spacing: -0.4px;
+      margin: 14px 0 10px;
+      font-size: 44px;
+      line-height: 1.05;
+      letter-spacing: -0.6px;
     }
-    @media (max-width: 520px){
-      h1{ font-size: 34px; }
+    @media (max-width: 520px){ h1{ font-size: 36px; } }
+
+    .glitch{
+      position:relative;
+      display:inline-block;
+      text-transform: uppercase;
     }
-    .sub{
-      margin: 0 0 16px;
-      color: var(--muted);
-      max-width: 70ch;
+    .glitch::before,
+    .glitch::after{
+      content: attr(data-text);
+      position:absolute;
+      left:0;
+      top:0;
+      opacity:.60;
+      clip-path: inset(0 0 0 0);
+      mix-blend-mode: screen;
+      pointer-events:none;
+    }
+    .glitch::before{
+      transform: translate3d(1px,0,0);
+      color: var(--p3);
+      animation: g1 3.8s infinite linear;
+      opacity:.35;
+    }
+    .glitch::after{
+      transform: translate3d(-1px,0,0);
+      color: var(--p1);
+      animation: g2 4.6s infinite linear;
+      opacity:.30;
+    }
+    @keyframes g1{
+      0%{ clip-path: inset(0 0 92% 0); }
+      12%{ clip-path: inset(20% 0 60% 0); }
+      24%{ clip-path: inset(72% 0 12% 0); }
+      36%{ clip-path: inset(40% 0 40% 0); }
+      48%{ clip-path: inset(10% 0 75% 0); }
+      60%{ clip-path: inset(66% 0 18% 0); }
+      72%{ clip-path: inset(30% 0 48% 0); }
+      84%{ clip-path: inset(78% 0 8% 0); }
+      100%{ clip-path: inset(0 0 92% 0); }
+    }
+    @keyframes g2{
+      0%{ clip-path: inset(88% 0 0 0); }
+      16%{ clip-path: inset(60% 0 22% 0); }
+      32%{ clip-path: inset(12% 0 70% 0); }
+      48%{ clip-path: inset(44% 0 38% 0); }
+      64%{ clip-path: inset(76% 0 10% 0); }
+      80%{ clip-path: inset(28% 0 54% 0); }
+      100%{ clip-path: inset(88% 0 0 0); }
     }
 
-    .ctaRow{ display:flex; gap:10px; flex-wrap:wrap; margin-top: 14px; }
+    .sub{
+      margin:0 0 16px;
+      max-width: 74ch;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .cta{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top: 14px;
+    }
     .btn{
       display:inline-flex;
       align-items:center;
       justify-content:center;
       gap:10px;
-      padding: 10px 14px;
+      padding: 11px 14px;
       border-radius: 12px;
-      border: 1px solid var(--border);
+      border:1px solid var(--line);
       background: rgba(255,255,255,.04);
-      color: var(--text);
-      text-decoration:none;
-      font-weight: 650;
-      transform: translateY(0);
+      color: var(--fg);
+      font-weight: 700;
       transition: transform .15s ease, background .15s ease, border-color .15s ease;
     }
     .btn:hover{
       transform: translateY(-1px);
       background: rgba(255,255,255,.06);
       border-color: rgba(255,255,255,.18);
+      text-decoration:none;
     }
     .btn.primary{
       border-color: transparent;
-      background: linear-gradient(135deg, rgba(124,255,107,.88), rgba(110,168,255,.70));
-      color: #061018;
+      background: linear-gradient(135deg, rgba(124,255,107,.90), rgba(110,168,255,.72));
+      color:#061018;
+    }
+
+    .metaRow{
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: 14px;
     }
 
     .mini{
       padding: 16px;
       border-radius: 16px;
-      border: 1px solid var(--border);
-      background: rgba(0,0,0,.18);
+      border: 1px solid var(--line);
+      background: rgba(0,0,0,.20);
     }
-    .mini h3{ margin:0 0 6px; font-size: 15px; }
+    .mini + .mini{ margin-top: 12px; }
+    .mini h3{
+      margin:0 0 6px;
+      font-size: 14px;
+      letter-spacing:.2px;
+      text-transform: uppercase;
+      color: rgba(234,240,255,.92);
+    }
     .mini p{ margin:0; color: var(--muted); font-size: 14px; }
 
-    /* Sections */
-    section{ scroll-margin-top: 92px; }
     .grid{
       display:grid;
       grid-template-columns: repeat(12, 1fr);
       gap: 16px;
-      margin-top: 16px;
+      margin-top: 14px;
     }
     .span12{ grid-column: span 12; }
     .span6{ grid-column: span 6; }
-    @media (max-width: 920px){
-      .span6{ grid-column: span 12; }
-    }
-    .sectionCard{ padding: 22px; }
+    @media (max-width: 940px){ .span6{ grid-column: span 12; } }
 
+    section{ scroll-margin-top: 92px; }
+    .sectionCard{ padding: 22px; }
     h2{
       margin:0 0 10px;
       font-size: 22px;
       letter-spacing: -.2px;
+      text-transform: uppercase;
     }
-    .meta{ color: var(--muted); font-size: 14px; margin: 8px 0 0; }
-
-    .tags{ display:flex; flex-wrap:wrap; gap:8px; margin-top: 12px; }
+    .tags{
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+      margin-top: 10px;
+    }
     .tag{
-      font-size: 13px;
       padding: 7px 10px;
       border-radius: 999px;
-      border: 1px solid var(--border);
-      color: var(--muted);
+      border:1px solid var(--line);
       background: rgba(255,255,255,.03);
+      color: var(--muted);
+      font-size: 13px;
+      white-space: nowrap;
     }
 
     .role{
       margin-top: 14px;
-      padding: 14px;
-      border-radius: 16px;
-      border: 1px solid var(--border);
+      border:1px solid var(--line);
       background: rgba(255,255,255,.03);
+      border-radius: 16px;
+      padding: 14px;
     }
     .roleTop{
       display:flex;
@@ -344,55 +325,66 @@
       flex-wrap: wrap;
       align-items: baseline;
     }
-    .role h3{ margin:0; font-size: 16px; }
-    .role .when{ color: var(--muted); font-size: 13px; }
-    .bullets{
+    .role h3{
+      margin:0;
+      font-size: 16px;
+      letter-spacing:.1px;
+    }
+    .when{ color: var(--muted); font-size: 13px; }
+    ul.bullets{
       margin: 10px 0 0;
       padding-left: 18px;
       color: var(--muted);
     }
-    .bullets li{ margin: 6px 0; }
+    ul.bullets li{ margin: 6px 0; }
+
+    .line{
+      height:1px;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,.14), transparent);
+      margin: 14px 0 0;
+    }
 
     footer{
       max-width: var(--max);
-      margin: 22px auto 0;
+      margin: 20px auto 0;
       padding: 26px 18px;
-      border-top: 1px solid var(--border);
+      border-top:1px solid var(--line);
       color: var(--muted);
       text-align:center;
     }
 
-    /* Small “professional animation”: subtle card glow on hover */
-    .card:hover{
-      box-shadow: 0 22px 52px rgba(0,0,0,.55);
+    .reveal{
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity .7s ease, transform .7s ease;
+    }
+    .reveal.in{
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (prefers-reduced-motion: reduce){
+      .pulse, .glitch::before, .glitch::after { animation: none !important; }
+      .reveal{ opacity:1; transform:none; }
     }
   </style>
 </head>
 
 <body>
-  <!-- Animated Background -->
-  <div class="bg" aria-hidden="true">
-    <div class="portal"></div>
-    <div class="stars"></div>
-    <div class="stars2"></div>
-    <div class="blob b1"></div>
-    <div class="blob b2"></div>
-  </div>
+  <canvas id="fx"></canvas>
+  <div class="wash" aria-hidden="true"></div>
 
   <header>
     <div class="nav">
-      <a class="brand" href="#top">
-        <span class="brandDot" aria-hidden="true"></span>
-        <strong>Aphiwe Ngubeni</strong>
-      </a>
+      <div class="brand"><span class="sig" aria-hidden="true"></span> <span>APHIWE NGUBENI</span></div>
       <nav aria-label="Primary">
         <ul>
-          <li><a href="#about">About</a></li>
-          <li><a href="#skills">Core Skills</a></li>
-          <li><a href="#experience">Experience</a></li>
-          <li><a href="#education">Education</a></li>
-          <li><a href="#certs">Certifications</a></li>
-          <li><a href="#contact">Contact</a></li>
+          <li><a href="#about">ABOUT</a></li>
+          <li><a href="#skills">SKILLS</a></li>
+          <li><a href="#experience">EXPERIENCE</a></li>
+          <li><a href="#education">EDUCATION</a></li>
+          <li><a href="#certs">CERTS</a></li>
+          <li><a href="#contact">CONTACT</a></li>
         </ul>
       </nav>
     </div>
@@ -400,62 +392,60 @@
 
   <main id="top">
     <div class="hero">
-      <div class="card heroMain">
-        <span class="badge"><span class="pulse" aria-hidden="true"></span> Junior Software Tester & Software Developer</span>
-        <h1>Quality-first delivery in regulated, high-availability systems.</h1>
+      <div class="card heroMain reveal">
+        <div class="kicker"><span class="pulse" aria-hidden="true"></span> JUNIOR SOFTWARE TESTER & SOFTWARE DEVELOPER</div>
+        <h1 class="glitch" data-text="APHIWE KHAYELIHLE NGUBENI">APHIWE KHAYELIHLE NGUBENI</h1>
         <p class="sub">
-          Junior Software Tester and Software Developer with practical experience across manual testing,
-          compliance-focused validation, front-end testing, and enterprise application support within logistics
-          and industrial systems. Proven ability to execute structured test cases, identify non-compliant behaviour,
-          support regulated operational platforms, and contribute to software development using C# and .NET.
-          Recognised for strong attention to detail, analytical thinking, and a disciplined, quality-first approach.
+          Junior Software Tester and Software Developer with practical experience across manual testing, compliance-focused validation,
+          front-end testing, and enterprise application support within logistics and industrial systems. Proven ability to execute structured
+          test cases, identify non-compliant behaviour, support regulated operational platforms, and contribute to software development using
+          C# and .NET. Recognised for strong attention to detail, analytical thinking, and a disciplined, quality-first approach.
         </p>
 
-        <div class="ctaRow">
-          <a class="btn primary" href="#contact">Contact Me</a>
-          <a class="btn" href="#experience">View Experience</a>
-        
-          <a class="btn" href="https://www.linkedin.com/in/aphiwe-n-9727851b4/" target="_blank" rel="noreferrer">LinkedIn</a>
+        <div class="cta">
+          <a class="btn primary" href="#contact">CONTACT</a>
+          <a class="btn" href="#experience">EXPERIENCE</a>
+          <a class="btn" href="https://www.linkedin.com/in/aphiwe-n-9727851b4" target="_blank" rel="noreferrer">LINKEDIN</a>
         </div>
 
-        <p class="meta" style="margin-top:12px">
-          Email: <a href="mailto:aphiwengubeni07@gmail.com">aphiwengubeni07@gmail.com</a> &nbsp;|&nbsp;
-          Phone: <a href="tel:+27698459420">069 845 9420</a>
-        </p>
+        <div class="metaRow">
+          <span>Email: <a href="mailto:aphiwengubeni07@gmail.com">aphiwengubeni07@gmail.com</a></span>
+          &nbsp;&nbsp;|&nbsp;&nbsp;
+          <span>Phone: <a href="tel:+27698459420">069 845 9420</a></span>
+        </div>
       </div>
 
-      <div class="card heroSide">
+      <div class="card heroSide reveal">
         <div class="mini">
-          <h3>Focus areas</h3>
-          <p>Manual testing, compliance & quality validation, front-end/UI testing, defect reporting, and application support.</p>
+          <h3>Focus</h3>
+          <p>Manual Testing • Compliance & Quality Validation • Front-End/UI Testing • Defect Identification & Reporting</p>
         </div>
-        <div style="height:12px"></div>
         <div class="mini">
-          <h3>Tech foundation</h3>
-          <p>Software development support (C#, .NET), Agile/Scrum collaboration, technical & test documentation.</p>
+          <h3>Support</h3>
+          <p>Software Development Support (C#, .NET) • Agile/Scrum Collaboration • Technical & Test Documentation • Application Support</p>
         </div>
-        <div style="height:12px"></div>
         <div class="mini">
-          <h3>Availability</h3>
-          <p>Open to Junior QA / Compliance Testing roles and quality-focused development support work.</p>
+          <h3>Profile</h3>
+          <p>Structured execution. Clean evidence. Clear communication. Reliable delivery.</p>
         </div>
       </div>
     </div>
 
-    <!-- CONTENT GRID -->
     <div class="grid">
-      <!-- ABOUT -->
-      <section id="about" class="card sectionCard span6">
-        <h2>About</h2>
-        <p class="meta">
-          I work with operational systems where reliability, audit readiness, and clear validation matter.
-          My approach is structured: execute test cases, capture evidence, report defects clearly, and support stable releases.
+      <section id="about" class="card sectionCard span6 reveal">
+        <h2>ABOUT</h2>
+        <p style="margin:0; color: var(--muted);">
+          I work across testing and delivery in operational systems where correctness, stability, and compliance readiness matter.
+          I focus on disciplined test execution, functional validation, defect investigation, and consistent documentation.
+        </p>
+        <div class="line"></div>
+        <p style="margin:12px 0 0; color: var(--muted);">
+          Current experience includes regulated, high-availability industrial environments, enterprise application support, and development support using C# and .NET.
         </p>
       </section>
 
-      <!-- SKILLS -->
-      <section id="skills" class="card sectionCard span6">
-        <h2>Core Skills</h2>
+      <section id="skills" class="card sectionCard span6 reveal">
+        <h2>SKILLS</h2>
         <div class="tags">
           <span class="tag">Manual Testing & Test Execution</span>
           <span class="tag">Compliance & Quality Validation</span>
@@ -468,14 +458,13 @@
         </div>
       </section>
 
-      <!-- EXPERIENCE (ONLY FROM YOUR CV) -->
-      <section id="experience" class="card sectionCard span12">
-        <h2>Professional Experience</h2>
+      <section id="experience" class="card sectionCard span12 reveal">
+        <h2>EXPERIENCE</h2>
 
         <div class="role">
           <div class="roleTop">
             <h3>Junior Developer Intern — Richards Bay Coal Terminal (RBCT) / iOCO</h3>
-            <span class="when">Sep 2025 – Present</span>
+            <div class="when">Sep 2025 – Present</div>
           </div>
           <ul class="bullets">
             <li>Support and maintain mission-critical logistics and scheduling systems used in a regulated, high-availability industrial environment.</li>
@@ -489,7 +478,7 @@
         <div class="role">
           <div class="roleTop">
             <h3>Software Development Intern — Catin Systems (Pty) Ltd</h3>
-            <span class="when">Sep 2024 – Sep 2025</span>
+            <div class="when">Sep 2024 – Sep 2025</div>
           </div>
           <ul class="bullets">
             <li>Conducted manual testing and front-end validation on web-based systems to ensure expected functional behaviour.</li>
@@ -507,7 +496,7 @@
         <div class="role">
           <div class="roleTop">
             <h3>C++ Backend Intern — Intern Careers (Remote)</h3>
-            <span class="when">Mar 2024 – Apr 2024</span>
+            <div class="when">Mar 2024 – Apr 2024</div>
           </div>
           <ul class="bullets">
             <li>Reviewed backend logic and executed tests to identify defects and inconsistencies.</li>
@@ -516,53 +505,198 @@
         </div>
       </section>
 
-      <!-- EDUCATION -->
-      <section id="education" class="card sectionCard span6">
-        <h2>Education</h2>
+      <section id="education" class="card sectionCard span6 reveal">
+        <h2>EDUCATION</h2>
         <ul class="bullets">
           <li>Bachelor of Science in Information Technology — Richfield Institute of Technology (2024)</li>
           <li>National Certification in Information Systems — ITCA</li>
-          <li>NSC Matric — Verulam Secondary School (Completed 2019)</li>
+          <li>NSC Matric — Verulam Secondary School — Completed 2019</li>
         </ul>
       </section>
 
-  
-      <section id="certs" class="card sectionCard span6">
-        <h2>Certifications</h2>
+      <section id="certs" class="card sectionCard span6 reveal">
+        <h2>CERTIFICATIONS</h2>
         <ul class="bullets">
           <li>Microsoft AZ-900: Azure Fundamentals</li>
           <li>Microsoft AZ-204: Developing Solutions for Microsoft Azure</li>
           <li>70-480: Programming in HTML5, CSS3 & JavaScript</li>
           <li>98-381: Introduction to Python</li>
         </ul>
-        <p class="meta">References available upon request.</p>
       </section>
 
-   
-      <section id="contact" class="card sectionCard span12">
-        <h2>Contact</h2>
-        <p class="meta">
-          If you’d like to discuss a Junior QA / Compliance Testing opportunity (or quality-focused development support), contact me directly:
-        </p>
-        <div class="ctaRow">
-          <a class="btn primary" href="mailto:aphiwengubeni07@gmail.com?subject=Portfolio%20Enquiry">Email Me</a>
-          <a class="btn" href="tel:+27698459420">Call: 069 845 9420</a>
-          
-          <a class="btn" href="www.linkedin.com/in/aphiwe-n-9727851b4" target="_blank" rel="noreferrer">LinkedIn</a>
+      <section id="contact" class="card sectionCard span12 reveal">
+        <h2>CONTACT</h2>
+        <div class="cta">
+          <a class="btn primary" href="mailto:aphiwengubeni07@gmail.com?subject=Portfolio%20Enquiry">EMAIL</a>
+          <a class="btn" href="tel:+27698459420">CALL</a>
+          <a class="btn" href="https://www.linkedin.com/in/aphiwe-n-9727851b4" target="_blank" rel="noreferrer">LINKEDIN</a>
         </div>
-        <p class="meta" style="margin-top:12px">
-          /www.linkedin.com/in/aphiwe-n-9727851b4
-        </p>
+        <div class="metaRow" style="margin-top:12px;">
+          <span>aphiwengubeni07@gmail.com</span>
+          &nbsp;&nbsp;|&nbsp;&nbsp;
+          <span>069 845 9420</span>
+        </div>
+        <div class="line"></div>
+        <div class="metaRow" style="margin-top:12px;">References available upon request.</div>
       </section>
     </div>
   </main>
 
   <footer>
-    © <span id="year"></span> Aphiwe Khayelihle Ngubeni. All rights reserved.
+    © <span id="y"></span> Aphiwe Khayelihle Ngubeni
   </footer>
 
   <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    document.getElementById("y").textContent = new Date().getFullYear();
+
+    if (!reduce) {
+      const els = document.querySelectorAll(".reveal");
+      const io = new IntersectionObserver((entries) => {
+        for (const e of entries) {
+          if (e.isIntersecting) {
+            e.target.classList.add("in");
+            io.unobserve(e.target);
+          }
+        }
+      }, { threshold: 0.12 });
+      els.forEach(el => io.observe(el));
+    } else {
+      document.querySelectorAll(".reveal").forEach(el => el.classList.add("in"));
+    }
+
+    const canvas = document.getElementById("fx");
+    const ctx = canvas.getContext("2d", { alpha: true });
+
+    let w=0, h=0, dpr=1;
+    function resize(){
+      dpr = Math.max(1, Math.min(2, window.devicePixelRatio || 1));
+      w = canvas.width = Math.floor(window.innerWidth * dpr);
+      h = canvas.height = Math.floor(window.innerHeight * dpr);
+      canvas.style.width = window.innerWidth + "px";
+      canvas.style.height = window.innerHeight + "px";
+      ctx.setTransform(1,0,0,1,0,0);
+    }
+    window.addEventListener("resize", resize);
+    resize();
+
+    const rand = (a,b)=>a+Math.random()*(b-a);
+
+    const stars = Array.from({length: 160}, ()=>({
+      x: rand(0,1),
+      y: rand(0,1),
+      z: rand(.2,1),
+      r: rand(.6,1.8),
+      tw: rand(0,Math.PI*2),
+      sp: rand(.15,.55)
+    }));
+
+    const goo = Array.from({length: 6}, ()=>({
+      x: rand(.1,.9),
+      y: rand(.1,.9),
+      vx: rand(-.02,.02),
+      vy: rand(-.02,.02),
+      s: rand(140,280),
+      p: rand(0,Math.PI*2),
+      ps: rand(.002,.006)
+    }));
+
+    let mx = 0.5, my = 0.5;
+    window.addEventListener("mousemove", (e)=>{
+      mx = e.clientX / window.innerWidth;
+      my = e.clientY / window.innerHeight;
+    });
+
+    function draw(t){
+      const time = t * 0.001;
+
+      ctx.clearRect(0,0,w,h);
+
+      ctx.globalCompositeOperation = "source-over";
+      ctx.fillStyle = "rgba(0,0,0,0)";
+      ctx.fillRect(0,0,w,h);
+
+      ctx.globalCompositeOperation = "screen";
+      for (const s of stars){
+        s.tw += s.sp * 0.02;
+        const x = (s.x + (mx-0.5)*0.02*s.z) * w;
+        const y = (s.y + (my-0.5)*0.02*s.z) * h;
+        const a = 0.18 + 0.22*Math.sin(s.tw);
+        ctx.beginPath();
+        ctx.fillStyle = `rgba(234,240,255,${a})`;
+        ctx.arc(x,y, s.r*dpr*(0.7 + s.z*0.6), 0, Math.PI*2);
+        ctx.fill();
+      }
+
+      const cx = w*0.18 + (mx-0.5)*w*0.03;
+      const cy = h*0.18 + (my-0.5)*h*0.03;
+
+      const ringR = Math.min(w,h)*0.34;
+      const ringW = Math.min(w,h)*0.07;
+
+      ctx.globalCompositeOperation = "screen";
+      ctx.save();
+      ctx.translate(cx, cy);
+      ctx.rotate(time*0.35);
+
+      for (let i=0;i<10;i++){
+        const rr = ringR - i*(ringW*0.10);
+        const grad = ctx.createRadialGradient(0,0, rr*0.35, 0,0, rr);
+        grad.addColorStop(0, `rgba(124,255,107,0.0)`);
+        grad.addColorStop(0.55, `rgba(124,255,107,${0.06 + i*0.004})`);
+        grad.addColorStop(0.75, `rgba(110,168,255,${0.04 + i*0.003})`);
+        grad.addColorStop(1, `rgba(77,255,181,0.0)`);
+
+        ctx.beginPath();
+        ctx.strokeStyle = grad;
+        ctx.lineWidth = ringW*0.18;
+        ctx.globalAlpha = 0.9;
+        ctx.arc(0,0, rr, 0, Math.PI*2);
+        ctx.stroke();
+      }
+
+      for (let i=0;i<240;i++){
+        const a = i/240 * Math.PI*2 + time*0.8;
+        const rr = ringR + Math.sin(a*3 + time*1.7)*ringW*0.22;
+        const px = Math.cos(a)*rr;
+        const py = Math.sin(a)*rr;
+        const alpha = 0.08 + 0.14*Math.sin(a*5 + time*2.2);
+        ctx.fillStyle = `rgba(182,255,76,${Math.max(0,alpha)})`;
+        ctx.fillRect(px, py, 2*dpr, 2*dpr);
+      }
+
+      ctx.restore();
+
+      ctx.globalCompositeOperation = "screen";
+      for (const b of goo){
+        b.p += b.ps;
+        b.x += b.vx * 0.008;
+        b.y += b.vy * 0.008;
+        if (b.x < -0.2) b.x = 1.2;
+        if (b.x > 1.2) b.x = -0.2;
+        if (b.y < -0.2) b.y = 1.2;
+        if (b.y > 1.2) b.y = -0.2;
+
+        const x = b.x*w + Math.sin(b.p*3.2)*22*dpr;
+        const y = b.y*h + Math.cos(b.p*2.6)*22*dpr;
+        const s = b.s*dpr;
+
+        const g = ctx.createRadialGradient(x,y, 0, x,y, s);
+        g.addColorStop(0, "rgba(124,255,107,0.18)");
+        g.addColorStop(0.45, "rgba(110,168,255,0.10)");
+        g.addColorStop(1, "rgba(0,0,0,0.0)");
+
+        ctx.fillStyle = g;
+        ctx.beginPath();
+        ctx.ellipse(x,y, s*0.92, s*0.76, Math.sin(b.p)*0.6, 0, Math.PI*2);
+        ctx.fill();
+      }
+
+      requestAnimationFrame(draw);
+    }
+
+    if (!reduce) requestAnimationFrame(draw);
   </script>
 </body>
 </html>
