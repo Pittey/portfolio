@@ -1,0 +1,375 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Aphiwe Ngubeni | Portfolio</title>
+  <meta name="description" content="Aphiwe Ngubeni — Software Developer / QA & Compliance Testing Enthusiast. Portfolio, projects, experience, and contact." />
+  <meta name="robots" content="index,follow" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Aphiwe Ngubeni | Portfolio" />
+  <meta property="og:description" content="Software Developer / QA & Compliance Testing Enthusiast. Projects, experience, and contact." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://aphiwengubeni.dev" />
+
+  <!-- Basic styling (no build tools required) -->
+  <style>
+    :root{
+      --bg:#0b1020;
+      --panel:#111a33;
+      --text:#e9edf7;
+      --muted:#b9c2da;
+      --accent:#6ea8fe;
+      --accent2:#7ee787;
+      --border:rgba(255,255,255,.10);
+      --shadow: 0 12px 32px rgba(0,0,0,.35);
+      --radius:18px;
+      --max:1100px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      color:var(--text);
+      background: radial-gradient(1200px 600px at 20% 10%, rgba(110,168,254,.25), transparent 55%),
+                  radial-gradient(900px 500px at 80% 30%, rgba(126,231,135,.18), transparent 60%),
+                  var(--bg);
+      line-height:1.55;
+    }
+    a{color:inherit}
+    .container{max-width:var(--max); margin:0 auto; padding:28px 18px}
+    header{
+      position:sticky; top:0; z-index:10;
+      backdrop-filter: blur(10px);
+      background: linear-gradient(to bottom, rgba(11,16,32,.85), rgba(11,16,32,.55));
+      border-bottom: 1px solid var(--border);
+    }
+    .nav{
+      display:flex; align-items:center; justify-content:space-between; gap:16px;
+      max-width:var(--max); margin:0 auto; padding:14px 18px;
+    }
+    .brand{display:flex; align-items:center; gap:10px; text-decoration:none}
+    .dot{
+      width:12px; height:12px; border-radius:999px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      box-shadow: 0 0 0 4px rgba(110,168,254,.12);
+    }
+    .brand strong{letter-spacing:.2px}
+    nav ul{display:flex; list-style:none; padding:0; margin:0; gap:14px; flex-wrap:wrap}
+    nav a{
+      text-decoration:none;
+      color:var(--muted);
+      padding:8px 10px;
+      border-radius:10px;
+      border:1px solid transparent;
+    }
+    nav a:hover{
+      color:var(--text);
+      border-color:var(--border);
+      background: rgba(255,255,255,.04);
+    }
+
+    .hero{
+      padding:42px 0 26px;
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap:22px;
+      align-items:start;
+    }
+    @media (max-width: 860px){
+      .hero{grid-template-columns:1fr; padding-top:24px}
+    }
+    .card{
+      background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      box-shadow: var(--shadow);
+    }
+    .heroMain{padding:26px}
+    .kicker{
+      display:inline-flex; gap:10px; align-items:center;
+      padding:8px 12px;
+      border-radius:999px;
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.03);
+      color:var(--muted);
+      font-size: 13px;
+    }
+    h1{margin:14px 0 8px; font-size: 40px; line-height:1.1}
+    @media (max-width: 480px){ h1{font-size:34px} }
+    .sub{color:var(--muted); margin:0 0 18px; max-width: 62ch}
+    .ctaRow{display:flex; gap:10px; flex-wrap:wrap; margin-top: 16px}
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center; gap:10px;
+      padding:10px 14px;
+      border-radius:12px;
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.04);
+      color:var(--text);
+      text-decoration:none;
+      font-weight: 600;
+    }
+    .btn.primary{
+      background: linear-gradient(135deg, rgba(110,168,254,.95), rgba(126,231,135,.75));
+      border-color: transparent;
+      color:#07101d;
+    }
+    .btn:hover{transform: translateY(-1px)}
+    .btn:active{transform: translateY(0)}
+    .heroSide{padding:18px}
+    .mini{
+      padding:16px;
+      border-radius:16px;
+      border:1px solid var(--border);
+      background: rgba(0,0,0,.18);
+    }
+    .mini h3{margin:0 0 6px; font-size:15px}
+    .mini p{margin:0; color:var(--muted); font-size:14px}
+    .grid{
+      display:grid;
+      gap:16px;
+      grid-template-columns: repeat(12, 1fr);
+      margin-top: 18px;
+    }
+    section{scroll-margin-top:90px}
+    .sectionCard{grid-column: span 12; padding:22px}
+    @media (min-width: 860px){
+      .half{grid-column: span 6}
+      .third{grid-column: span 4}
+    }
+    h2{margin:0 0 10px; font-size:22px}
+    .tags{display:flex; flex-wrap:wrap; gap:8px; margin-top: 10px}
+    .tag{
+      font-size: 13px;
+      padding:7px 10px;
+      border-radius:999px;
+      border:1px solid var(--border);
+      color:var(--muted);
+      background: rgba(255,255,255,.03);
+    }
+    .projects{display:grid; gap:12px; margin-top:12px}
+    .project{
+      padding:14px;
+      border-radius:16px;
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.03);
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+    }
+    .projectTop{display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap}
+    .project h3{margin:0; font-size:16px}
+    .project p{margin:0; color:var(--muted); font-size:14px}
+    .meta{color:var(--muted); font-size:13px}
+    footer{
+      padding:32px 18px;
+      color:var(--muted);
+      border-top:1px solid var(--border);
+      margin-top: 26px;
+      text-align:center;
+    }
+    .twoCol{
+      display:grid; gap:14px;
+      grid-template-columns: 1fr;
+    }
+    @media (min-width: 860px){
+      .twoCol{grid-template-columns: 1fr 1fr;}
+    }
+    .list{
+      margin: 10px 0 0;
+      padding-left: 18px;
+      color: var(--muted);
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="nav">
+      <a class="brand" href="#top">
+        <span class="dot" aria-hidden="true"></span>
+        <strong>Aphiwe Ngubeni</strong>
+      </a>
+      <nav aria-label="Primary">
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top" class="container">
+    <div class="hero">
+      <div class="card heroMain">
+        <span class="kicker">Software Developer • QA / Compliance Testing Focus</span>
+        <h1>Building reliable systems and testing them thoroughly.</h1>
+        <p class="sub">
+          I’m Aphiwe Ngubeni, a junior software developer with experience in C#, SQL, HTML and JavaScript
+          in operational environments. I’m also actively transitioning toward QA and compliance testing,
+          with a strong interest in regulated products and high-quality release standards.
+        </p>
+        <div class="ctaRow">
+          <a class="btn primary" href="#contact">Contact Me</a>
+          <a class="btn" href="#projects">View Projects</a>
+          <!-- Replace with your real links -->
+          <a class="btn" href="https://www.linkedin.com/" target="_blank" rel="noreferrer">LinkedIn</a>
+          <a class="btn" href="https://github.com/" target="_blank" rel="noreferrer">GitHub</a>
+        </div>
+      </div>
+
+      <div class="card heroSide">
+        <div class="mini">
+          <h3>Current focus</h3>
+          <p>Manual testing, compliance mindset, test case design, and bug reporting quality.</p>
+        </div>
+        <div style="height:12px"></div>
+        <div class="mini">
+          <h3>Core stack</h3>
+          <p>C# • SQL • HTML • JavaScript • AngularJS (legacy) • APIs • Reporting</p>
+        </div>
+        <div style="height:12px"></div>
+        <div class="mini">
+          <h3>Location</h3>
+          <p>South Africa (open to remote / hybrid)</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid">
+      <section id="about" class="card sectionCard half">
+        <h2>About</h2>
+        <p class="meta">
+          I work in environments where correctness matters—operational systems, auditability, and clean data flows.
+          I’m comfortable collaborating with business users, investigating issues end-to-end, and translating findings
+          into actionable fixes or test coverage.
+        </p>
+        <div class="twoCol">
+          <div class="mini">
+            <h3>What you can expect</h3>
+            <ul class="list">
+              <li>Structured testing approach (requirements → test cases → evidence)</li>
+              <li>Clear bug reports (steps, expected vs actual, severity, screenshots)</li>
+              <li>Practical development support where needed</li>
+            </ul>
+          </div>
+          <div class="mini">
+            <h3>What I’m growing</h3>
+            <ul class="list">
+              <li>Compliance testing patterns</li>
+              <li>Risk-based testing</li>
+              <li>Automation foundations (where appropriate)</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="skills" class="card sectionCard half">
+        <h2>Skills</h2>
+        <div class="tags">
+          <span class="tag">Manual Testing</span>
+          <span class="tag">Test Case Design</span>
+          <span class="tag">Bug Reporting</span>
+          <span class="tag">UAT Support</span>
+          <span class="tag">C#</span>
+          <span class="tag">SQL</span>
+          <span class="tag">REST APIs</span>
+          <span class="tag">HTML/CSS</span>
+          <span class="tag">JavaScript</span>
+          <span class="tag">AngularJS</span>
+          <span class="tag">Git</span>
+        </div>
+        <p class="meta" style="margin-top:12px">
+          Tip: Replace these with the skills you want recruiters to search for (ATS-friendly keywords).
+        </p>
+      </section>
+
+      <section id="projects" class="card sectionCard">
+        <h2>Projects</h2>
+        <p class="meta">Replace the placeholders with your real work. Keep each project outcome-focused.</p>
+
+        <div class="projects">
+          <div class="project">
+            <div class="projectTop">
+              <h3>Operational Dashboard Enhancements</h3>
+              <span class="meta">C# • SQL • Reporting</span>
+            </div>
+            <p>
+              Improved a business dashboard by fixing data inconsistencies, refining filters, and validating output
+              against source tables to ensure accurate operational reporting.
+            </p>
+          </div>
+
+          <div class="project">
+            <div class="projectTop">
+              <h3>AngularJS UI Debugging & Stability</h3>
+              <span class="meta">AngularJS • API Debugging</span>
+            </div>
+            <p>
+              Investigated UI rendering issues and API 500 errors by tracing request payloads, validating date formats,
+              and isolating server-side exceptions for targeted fixes.
+            </p>
+          </div>
+
+          <div class="project">
+            <div class="projectTop">
+              <h3>Compliance Test Case Practice Pack</h3>
+              <span class="meta">QA • Compliance</span>
+            </div>
+            <p>
+              Built structured test cases for regulated scenarios (rules clarity, RTP checks, autoplay safeguards),
+              focusing on evidence collection and risk classification.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="experience" class="card sectionCard half">
+        <h2>Experience</h2>
+        <p class="meta"><strong>Junior Software Developer</strong> — Richards Bay Coal Terminal (RBCT)</p>
+        <ul class="list">
+          <li>Maintained and supported internal web applications and operational workflows.</li>
+          <li>Assisted with troubleshooting UI/API issues and validating data outputs.</li>
+          <li>Worked across C#, SQL, and JavaScript in a business-critical environment.</li>
+        </ul>
+
+        <p class="meta" style="margin-top:14px"><strong>Previous / Internship</strong> — Add your details</p>
+        <ul class="list">
+          <li>Add 2–4 bullet points showing outcomes and tools used.</li>
+        </ul>
+      </section>
+
+      <section id="contact" class="card sectionCard half">
+        <h2>Contact</h2>
+        <p class="meta">
+          Want to discuss a QA / compliance testing role, or a junior dev role with a testing focus?
+          I respond quickly.
+        </p>
+
+        <!-- Replace email with your real address -->
+        <div class="ctaRow">
+          <a class="btn primary" href="mailto:yourname@email.com?subject=Portfolio%20Enquiry">Email Me</a>
+          <a class="btn" href="https://www.linkedin.com/" target="_blank" rel="noreferrer">Message on LinkedIn</a>
+        </div>
+
+        <p class="meta" style="margin-top:12px">
+          Optional: If you want a real contact form (not just mailto), host this on a platform like Netlify and
+          enable “Netlify Forms” or use Formspree.
+        </p>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    © <span id="year"></span> Aphiwe Ngubeni. All rights reserved.
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
